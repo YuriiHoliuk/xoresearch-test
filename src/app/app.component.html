@@ -1,3 +1,18 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li uiSref="contacts" uiSrefActive="active">
+                    <a href="">Contacts</a>
+                </li>
+                <li uiSref="groups" uiSrefActive="active">
+                    <a href="">Groups</a>
+                </li>
+                <li uiSref="clock" uiSrefActive="active">
+                    <a href="">Clock</a>
+                </li>
+            </ul>
+        </div>
+        <ui-view></ui-view>
+    </div>
+</div>
