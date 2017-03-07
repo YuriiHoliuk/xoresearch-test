@@ -1,7 +1,33 @@
-<div class="col-sm-7">
-    <!--<a routerLink="/groups/details">lolo</a>-->
-    <p>Lorem ipsum dolor.</p>
-</div>
-<div class="col-sm-3">
-    <!--<router-outlet name="sidebar"></router-outlet>-->
+<div class="col-sm-10">
+    <ul>
+        <li *ngFor="let group of groups" class="panel panel-default" (click)="setCurrentGroup(group)">
+            <div class="panel-body">
+                <span>{{group.title}} </span>
+                <span class="badge">{{countMembers(group.title)}}</span>
+            </div>
+            <ul *ngIf="currentGroup && group.title === currentGroup.title">
+                <li class="contact" *ngFor="let contact of (contacts | contactGroup: group)">
+                    <span class="name">{{contact.firstName}} </span><span class="name">{{contact.surname}}</span>
+                </li>
+                <p *ngIf="(contacts | contactGroup: group).length === 0">No contacts in this group</p>
+            </ul>
+        </li>
+    </ul>
+    <div class="controls" *ngIf="(!isCreating && !isEditing)">
+        <button class="btn btn-success" (click)="startCreating()">Create</button>
+        <button *ngIf="currentGroup" class="btn btn-danger" (click)="deleteGroup()">Delete</button>
+        <button *ngIf="currentGroup" class="btn btn-warning" (click)="startEditing()">Edit</button>
+    </div>
+
+    <div class="creating" *ngIf="isCreating">
+        <input type="text" [(ngModel)]="newGroup.title">
+        <button class="btn btn-default" (click)="addGroup()">Add</button>
+        <button class="btn btn-info" (click)="cancelCreating()">Cancel</button>
+    </div>
+
+    <div class="editing" *ngIf="isEditing">
+        <input type="text" [(ngModel)]="editedGroup.title">
+        <button class="btn btn-default" (click)="updateGroup()">Update</button>
+        <button class="btn btn-info" (click)="cancelEditing()">Cancel</button>
+    </div>
 </div>

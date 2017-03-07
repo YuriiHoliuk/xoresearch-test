@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+.page {
+    padding-top: 2em;
+}
+
+[uiSref] {
+    cursor: pointer;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+.name {
+    text-transform: capitalize;
+}

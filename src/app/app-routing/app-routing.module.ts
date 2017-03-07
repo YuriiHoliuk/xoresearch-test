@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
-import {UIRouterModule} from "ui-router-ng2";
+import { UIRouterModule } from "ui-router-ng2";
+
 
 import { ContactsComponent } from '../contacts/contacts.component';
 import { GroupsComponent } from '../groups/groups.component';
 import { ClockComponent } from '../clock/clock.component';
-import { ContactDetailsComponent } from '../contact-details/contact-details.component';
+
 
 const states = [
-  // {
-  //   url: '',
-  //   redirectTo: '/contacts',
-  //   urlMatch: 'full'
-  // },
   {
     name: 'contacts',
     url: '/contacts',
@@ -30,7 +26,13 @@ const states = [
 ]
 
 @NgModule({
-  imports: [ UIRouterModule.forRoot({states: states, useHash: false}) ],
-  exports: [ UIRouterModule ]
+  imports: [
+    UIRouterModule.forRoot({
+      states: states,
+      useHash: false,
+      otherwise: 'contacts'
+    })
+  ],
+  exports: [UIRouterModule]
 })
 export class AppRoutingModule { }

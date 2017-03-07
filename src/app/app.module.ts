@@ -3,12 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 import { AppRoutingModule } from './app-routing/app-routing.module'
+
 import { AppComponent } from './app.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { GroupsComponent } from './groups/groups.component';
 import { ClockComponent } from './clock/clock.component';
-import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { GroupsService } from './groups.service';
+import { ContactsService } from './contacts.service';
+import { ContactGroupPipe } from './contact-group.pipe';
 
 @NgModule({
   declarations: [
@@ -16,15 +21,19 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
     ContactsComponent,
     GroupsComponent,
     ClockComponent,
-    ContactDetailsComponent
+    ContactGroupPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
-  providers: [],
+  providers: [
+    ContactsService,
+    GroupsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

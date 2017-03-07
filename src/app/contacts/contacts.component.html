@@ -1,6 +1,100 @@
 <div class="col-sm-7">
-    <!--<a uiSref="hello" uiSrefActive="active">lalal</a>-->
-    <P>Lorem ipsum.</P>
+    <ul class="list-group">
+        <li class="list-group-item" [ngClass]="{'active': isSelected(contact)}" *ngFor="let contact of contacts" (click)="onSelect(contact)">
+            <span class="name">{{contact.firstName}} </span><span class="name">{{contact.surname}}</span>
+        </li>
+    </ul>
+    <div class="controls">
+        <button class="btn btn-success" (click)="startCreating()">Create</button>
+        <button class="btn btn-warning" *ngIf="selectedContact" (click)="startEditing()">Edit</button>
+        <button class="btn btn-danger" *ngIf="selectedContact" (click)="deleteContact()">Delete</button>
+    </div>
 </div>
 <div class="col-sm-3">
+
+    <!--Contact Details-->
+    <div class="contact-details" *ngIf="selectedContact && !isEditing && !isCreating">
+        <h2 class="name">{{selectedContact.firstName}} {{selectedContact.surname}}</h2>
+        <p>
+            age: {{selectedContact.age}}
+        </p>
+        <p>
+            group: {{selectedContact.group}}
+        </p>
+        <p>
+            description: {{selectedContact.description}}
+        </p>
+        <p>
+            note: {{selectedContact.note}}
+        </p>
+    </div>
+
+    <!--Contact Create Form-->
+    <form *ngIf="isCreating" class="form-horizontal" (ngSubmit)="addContact(newContact)">
+        <div class="form-group">
+            <label for="firstanme">First Name:</label>
+            <input class="form-control" name="firstanme" [(ngModel)]="newContact.firstName" type="text">
+        </div>
+        <div class="form-group">
+            <label for="surname">Surname:</label>
+            <input class="form-control" name="surname" [(ngModel)]="newContact.surname" type="text">
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input class="form-control" name="age" [(ngModel)]="newContact.age" type="text">
+        </div>
+        <div class="form-group">
+            <label for="group">Group:</label>
+            <select class="form-control" [(ngModel)]="newContact.group" name="group">
+          <option *ngFor="let group of groups" value="{{group.title}}">{{group.title}}</option>
+        </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" rows="5" cols="20" [(ngModel)]="newContact.description" name="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="note">Note:</label>
+            <textarea class="form-control" rows="5" cols="20" [(ngModel)]="newContact.note" name="note"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Add</button>
+            <button (click)="cancelCreating()" class="btn btn-info">Cancel</button>
+        </div>
+    </form>
+
+    <!--Contact Edit Form-->
+    <form class="form-horizontal" (ngSubmit)="updateContact()" *ngIf="isEditing">
+        <div class="form-group">
+            <label for="firstanme">First Name:</label>
+            <input class="form-control" name="firstanme" [(ngModel)]="editedContact.firstName" type="text">
+        </div>
+        <div class="form-group">
+            <label for="surname">Surname:</label>
+            <input class="form-control" name="surname" [(ngModel)]="editedContact.surname" type="text">
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input class="form-control" name="age" [(ngModel)]="editedContact.age" type="text">
+        </div>
+        <div class="form-group">
+            <label for="group">Group:</label>
+            <select class="form-control" [(ngModel)]="editedContact.group" name="group">
+          <option *ngFor="let group of groups" value="{{group.title}}">{{group.title}}</option>
+        </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" rows="5" cols="20" [(ngModel)]="editedContact.description" name="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="note">Note:</label>
+            <textarea class="form-control" rows="5" cols="20" [(ngModel)]="editedContact.note" name="note"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Update</button>
+            <button (click)="cancelEditing()" class="btn btn-info">Cancel</button>
+        </div>
+    </form>
+
 </div>
