@@ -19,7 +19,7 @@ export class ClockComponent {
 
   ngAfterViewInit() {
     let ctx: CanvasRenderingContext2D = this.clock.nativeElement.getContext("2d");
-    ctx.lineCap = 'round';
+
 
     let centerX: number = 241;
     let centerY: number = 241;
@@ -31,14 +31,15 @@ export class ClockComponent {
     let radKoef = Math.PI / 180;
     let rotate45 = Math.PI / 2;
     let secLength = dotsRadius;
-    let minLength = secLength - 30;
-    let hourLength = minLength - 30;
+    let minLength = secLength - 70;
+    let hourLength = minLength - 50;
 
 
     function drawDial() {
 
       ctx.fillStyle = 'white';
       ctx.strokeStyle = 'black';
+      ctx.lineWidth = 2;
 
       ctx.beginPath();
       ctx.moveTo(centerX + outerRadius, centerY);
@@ -78,6 +79,7 @@ export class ClockComponent {
         let yCenter = centerY + dotsRadius * -Math.sin(deg * radKoef);
 
         ctx.strokeStyle = 'black';
+        ctx.lineWidth = 2;
 
         ctx.beginPath();
         ctx.moveTo(xCenter + radius, yCenter);
@@ -88,13 +90,50 @@ export class ClockComponent {
       }
     }
 
+    function drawDigits() {
+      ctx.font = 'bold 30px sans-serif';
+
+      for (let i = 0; i < 12; i++) {
+        let deg = 360 / 12 * (i + 1);
+
+        let radius = dotsRadius - 45;
+
+        let xCenter = centerX + radius * Math.cos(-deg * radKoef + rotate45);
+        let yCenter = centerY + radius * -Math.sin(-deg * radKoef + rotate45);
+
+        // if (i > 3) {
+        //   yCenter +=10;
+        // }
+
+        // if (i > 6 || i === 1) {
+        //   xCenter -=20;
+        // }
+
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 2;
+
+        ctx.beginPath();
+        ctx.moveTo(xCenter, yCenter);
+
+        if (i < 9) {
+          ctx.strokeText(('' + (i + 1)), xCenter - 5, yCenter + 10);
+        } else {
+          ctx.strokeText(('' + (i + 1)), xCenter - 15, yCenter + 10);
+        }
+
+        ctx.stroke();
+        ctx.closePath();
+      }
+    }
+
     function drawSecondsArrow(d: Date) {
 
       ctx.strokeStyle = 'red';
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
 
       // let d = new Date();
-      let sec = d.getSeconds();
+      let sec = d.getSeconds() + 1;
       let deg = 6 * sec;
       let endX = centerX + secLength * Math.cos(deg * radKoef - rotate45);
       let endY = centerY + secLength * Math.sin(deg * radKoef - rotate45);
@@ -109,10 +148,11 @@ export class ClockComponent {
 
     function drawMinutesArrow(d: Date) {
 
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 4;
       ctx.strokeStyle = 'black';
+      ctx.lineCap = 'round';
 
-      let sec = d.getSeconds();
+      let sec = d.getSeconds() + 1;
       let min = d.getMinutes();
       let deg = min * 6 + sec * 0.1;
       let endX = centerX + minLength * Math.cos(deg * radKoef - rotate45);
@@ -128,13 +168,14 @@ export class ClockComponent {
 
     function drawHoursArrow(d: Date) {
 
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 6;
       ctx.strokeStyle = 'black';
+      ctx.lineCap = 'round';
 
-      let sec = d.getSeconds();
+      let sec = d.getSeconds() + 1;
       let min = d.getMinutes();
       let hour = d.getHours();
-      let deg = hour * 6 + min * 0.1 + sec * 0.1 / 60;
+      let deg = hour * 30 + min * 0.5 + sec * 0.5 / 60;
       let endX = centerX + hourLength * Math.cos(deg * radKoef - rotate45);
       let endY = centerY + hourLength * Math.sin(deg * radKoef - rotate45);
 
@@ -150,6 +191,7 @@ export class ClockComponent {
 
       drawDial();
       drawDots();
+      drawDigits();
 
       let d = new Date();
 
