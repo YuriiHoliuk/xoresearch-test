@@ -1,1 +1,20 @@
+.contact-card {
+    padding-bottom: .8em;
+}
 
+.contact-card p {
+    font-size: 18px;
+}
+
+.contact-card:not(:first-child) {
+    padding-top: .3em;
+    border-top: 2px solid lightgray;
+}
+
+.col-sm-3 {
+    overflow: auto;
+}
+
+.list-group-item {
+    cursor: pointer;
+}

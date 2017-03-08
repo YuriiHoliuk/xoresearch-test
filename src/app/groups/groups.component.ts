@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { Contact } from '../contact';
 import { ContactsService } from '../contacts.service';
 import { Group } from '../group';
 import { GroupsService } from '../groups.service';
 import { ContactGroupPipe } from '../contact-group.pipe';
+
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-groups',
@@ -18,9 +20,22 @@ export class GroupsComponent implements OnInit {
     private groupsService: GroupsService
   ) { }
 
+  isCtrlDown = false;
+
+  @HostListener('document:keydown', ['$event'])
+  onCtrlDown(ev: KeyboardEvent) {
+    this.isCtrlDown = ev.ctrlKey;
+  }
+
+  @HostListener('document:keyup', ['$event'])
+  onCtrlUp(ev: KeyboardEvent) {
+    this.isCtrlDown = ev.ctrlKey;
+  }
+
   contacts: Contact[];
   groups: Group[];
-  currentGroup: Group;
+  selectedGroups: Group[] = [];
+  selectedIds: number[] = [];
 
   ngOnInit() {
     this.getContacts();
@@ -41,12 +56,44 @@ export class GroupsComponent implements OnInit {
       .then(groups => this.groups = groups);
   }
 
-  setCurrentGroup(group: Group): void {
-    if (this.currentGroup === group) {
-      this.currentGroup = null;
+  onSelect(group: Group): void {
+    this.isCreating = false;
+    this.isEditing = false;
+
+    if (this.isCtrlDown) {
+      if (this.selectedGroups == undefined) {
+        this.selectedGroups = [];
+      }
+      if (!~this.selectedIds.indexOf(group.id)) {
+        this.selectedGroups.push(group);
+        this.selectedIds.push(group.id);
+      } else {
+        _.remove(this.selectedGroups, elem => group.id === elem.id);
+        _.remove(this.selectedIds, id => group.id === id);
+      }
     } else {
-      this.currentGroup = group;
+      this.selectedGroups = [];
+      this.selectedGroups.push(group);
+      this.selectedIds = [];
+      this.selectedIds.push(group.id);
     }
+
+  }
+
+  isSelected(group: Group): boolean {
+    return this.selectedIds ? !!~this.selectedIds.indexOf(group.id) : false;
+  }
+
+  shouldShowEdit(): boolean {
+    if (!this.selectedGroups) {
+      return false;
+    } else {
+      return (this.selectedGroups.length === 1) ? true : false;
+    }
+  }
+
+  shouldShowDelete(): boolean {
+    return this.selectedGroups.length ? true : false;
   }
 
   isCreating: boolean = false;
@@ -76,9 +123,8 @@ export class GroupsComponent implements OnInit {
 
   startEditing() {
     this.isEditing = true;
-    this.editedGroup.id = this.currentGroup.id;
-    this.editedGroup.title = this.currentGroup.title;
-    console.log(this.editedGroup);
+    this.editedGroup.id = this.selectedGroups[0].id;
+    this.editedGroup.title = this.selectedGroups[0].title;
   }
 
   updateContacts(oldGroupTitle: string, newGroupTitle: string): void {
@@ -94,9 +140,9 @@ export class GroupsComponent implements OnInit {
   updateGroup(): void {
     this.groupsService.updateGroup(this.editedGroup)
       .then(() => {
-        this.updateContacts(this.currentGroup.title, this.editedGroup.title);
+        this.updateContacts(this.selectedGroups[0].title, this.editedGroup.title);
         this.isEditing = false;
-        this.currentGroup = null;
+        this.selectedGroups = [];
         this.editedGroup = null;
         this.getGroups();
         this.getContacts();
@@ -108,11 +154,13 @@ export class GroupsComponent implements OnInit {
   }
 
   deleteGroup(): void {
-    this.groupsService.deleteGroup(this.currentGroup.id)
-      .then(() => {
-        this.getGroups();
-        this.currentGroup = null;
-      })
+    this.selectedGroups.forEach(group => {
+      this.groupsService.deleteGroup(group.id)
+        .then(() => {
+          this.selectedGroups = [];
+        });
+    });
+    this.getGroups();
   }
 
 }

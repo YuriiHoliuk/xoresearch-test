@@ -12,6 +12,7 @@ ol {
     padding-left: 0;
 }
 
-.name {
+.name,
+.group {
     text-transform: capitalize;
 }

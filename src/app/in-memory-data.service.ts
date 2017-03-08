@@ -18,12 +18,12 @@ export class InMemoryDataService {
       {id: 4, firstName: "mary", surname: "brown", age: 36,  group: "work", description: "colleague", note: ""},
       {id: 5, firstName: "linda", surname: "davis", age: 63,  group: "customers", description: "urgent orders", note: ""},
       {id: 6, firstName: "barbara", surname: "miller", age: 31,  group: "friends", description: "classmate", note: ""},
-      {id: 7, firstName: "thomas", surname: "wilson", age: 19,  group: "customers", description: "regular customer", },
+      {id: 7, firstName: "thomas", surname: "wilson", age: 19,  group: "customers", description: "regular customer", note: ""},
       {id: 8, firstName: "paul", surname: "moore", age: 46,  group: "customers", description: "old customer", note: ""},
       {id: 9, firstName: "mark", surname: "taylor", age: 40,  group: "work", description: "sales", note: ""},
       {id: 10, firstName: "karen", surname: "anderson", age: 58,  group: "family", description: "sister", note: ""},
       {id: 11, firstName: "george", surname: "thomas", age: 32,  group: "friends", description: "drink a lot of beer", note: ""},
-      {id: 12, firstName: "james", surname: "smith", age: 15, group: "family", description: "son", note: ""},
+      {id: 12, firstName: "james", surname: "smith", age: 15, group: "family", description: "son", note: ""}
     ];
     return { groups, contacts };
   }

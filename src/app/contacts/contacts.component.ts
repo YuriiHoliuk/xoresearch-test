@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { Contact } from '../contact';
 import { Group } from '../group';
 import { ContactsService } from '../contacts.service';
 import { GroupsService } from '../groups.service';
 
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-contacts',
@@ -18,9 +19,22 @@ export class ContactsComponent implements OnInit {
     private groupsService: GroupsService
   ) { }
 
+  isCtrlDown = false;
+
+  @HostListener('document:keydown', ['$event'])
+  onCtrlDown(ev: KeyboardEvent) {
+    this.isCtrlDown = ev.ctrlKey;
+  }
+
+  @HostListener('document:keyup', ['$event'])
+  onCtrlUp(ev: KeyboardEvent) {
+    this.isCtrlDown = ev.ctrlKey;
+  }
+
   contacts: Contact[];
   groups: Group[];
-  selectedContact: Contact;
+  selectedContacts: Contact[] = [];
+  selectedIds: number[] = [];
   editedContact: Contact;
   newContact: Object = {
     firstName: '',
@@ -33,6 +47,7 @@ export class ContactsComponent implements OnInit {
 
   isCreating: boolean = false;
   isEditing: boolean = false;
+
 
   ngOnInit() {
     this.getContacts();
@@ -50,11 +65,51 @@ export class ContactsComponent implements OnInit {
   }
 
   onSelect(contact: Contact): void {
-    this.selectedContact = contact;
+
+    this.isCreating = false;
+    this.isEditing = false;
+
+    if (this.isCtrlDown) {
+      if (this.selectedContacts == undefined) {
+        this.selectedContacts = [];
+      }
+      if (!~this.selectedIds.indexOf(contact.id)) {
+        this.selectedContacts.push(contact);
+        this.selectedIds.push(contact.id);
+      } else {
+        _.remove(this.selectedContacts, elem => elem.id === contact.id);
+        _.remove(this.selectedIds, id => id === contact.id);
+      }
+    } else {
+      this.selectedContacts = [];
+      this.selectedContacts.push(contact);
+      this.selectedIds = [];
+      this.selectedIds.push(contact.id);
+    }
   }
 
   isSelected(contact: Contact): boolean {
-    return contact === this.selectedContact ? true : false;
+    return this.selectedIds ? !!~this.selectedIds.indexOf(contact.id) : false;
+  }
+
+  shouldShowEdit(): boolean {
+    if (!this.selectedContacts) {
+      return false;
+    } else {
+      return (this.selectedContacts.length === 1) ? true : false;
+    }
+  }
+
+  shouldShowDelete(): boolean {
+    return this.selectedContacts.length ? true : false;
+  }
+
+  shouldShowDetails(): boolean {
+    if (!this.selectedContacts) {
+      return false;
+    } else {
+      return (this.selectedContacts.length && !this.isEditing && !this.isCreating) ? true : false;
+    }
   }
 
   addContact(contact): void {
@@ -63,10 +118,10 @@ export class ContactsComponent implements OnInit {
         this.getContacts();
         this.isCreating = false;
         this.newContact = null;
-        this.selectedContact = null;
+        this.selectedContacts = [];
       });
   }
-  
+
   updateContact(): void {
     this.contactsService.updateContact(this.editedContact)
       .then(() => {
@@ -77,20 +132,24 @@ export class ContactsComponent implements OnInit {
   }
 
   deleteContact(): void {
-    this.contactsService.deleteContact(this.selectedContact.id)
-      .then(() => {
-        this.getContacts();
-        this.selectedContact = null;
-      })
+    this.selectedContacts.forEach(contact => {
+      this.contactsService.deleteContact(contact.id)
+        .then(() => {
+          this.selectedContacts = [];
+        });
+    });
+    this.getContacts();
   }
 
-  startCreating():void {
+  startCreating(): void {
     this.isCreating = true;
+    this.isEditing = false;
   }
 
-  startEditing():void {
-    this.editedContact = this.selectedContact;
+  startEditing(): void {
+    this.editedContact = Object.assign({}, this.selectedContacts[0]);
     this.isEditing = true;
+    this.isCreating = false;
   }
 
   cancelCreating(): void {

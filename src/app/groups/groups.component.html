@@ -1,11 +1,13 @@
 <div class="col-sm-10">
     <ul>
-        <li *ngFor="let group of groups" class="panel panel-default" (click)="setCurrentGroup(group)">
+        <li *ngFor="let group of groups" class="panel panel-default group-panel" (click)="onSelect(group)">
             <div class="panel-body">
-                <span>{{group.title}} </span>
-                <span class="badge">{{countMembers(group.title)}}</span>
+                <div class="group-body">
+                    <span class="group">{{group.title}} </span>
+                    <span class="badge">{{countMembers(group.title)}}</span>
+                </div>
             </div>
-            <ul *ngIf="currentGroup && group.title === currentGroup.title">
+            <ul *ngIf="isSelected(group)">
                 <li class="contact" *ngFor="let contact of (contacts | contactGroup: group)">
                     <span class="name">{{contact.firstName}} </span><span class="name">{{contact.surname}}</span>
                 </li>
@@ -15,19 +17,19 @@
     </ul>
     <div class="controls" *ngIf="(!isCreating && !isEditing)">
         <button class="btn btn-success" (click)="startCreating()">Create</button>
-        <button *ngIf="currentGroup" class="btn btn-danger" (click)="deleteGroup()">Delete</button>
-        <button *ngIf="currentGroup" class="btn btn-warning" (click)="startEditing()">Edit</button>
+        <button *ngIf="shouldShowEdit()" class="btn btn-warning" (click)="startEditing()">Edit</button>
+        <button *ngIf="shouldShowDelete()" class="btn btn-danger" (click)="deleteGroup()">Delete</button>
     </div>
 
-    <div class="creating" *ngIf="isCreating">
-        <input type="text" [(ngModel)]="newGroup.title">
-        <button class="btn btn-default" (click)="addGroup()">Add</button>
+    <form (ngSubmit)="addGroup()" name="creating" class="creating form-inline" *ngIf="isCreating">
+        <input class="form-control" type="text" [(ngModel)]="newGroup.title" [ngModelOptions]="{standalone: true}">
+        <button class="btn btn-default">Add</button>
         <button class="btn btn-info" (click)="cancelCreating()">Cancel</button>
-    </div>
+    </form>
 
-    <div class="editing" *ngIf="isEditing">
-        <input type="text" [(ngModel)]="editedGroup.title">
-        <button class="btn btn-default" (click)="updateGroup()">Update</button>
+    <form (ngSubmit)="updateGroup()" name="editing" class="editing form-inline" *ngIf="isEditing">
+        <input class="form-control" type="text" [(ngModel)]="editedGroup.title" [ngModelOptions]="{standalone: true}">
+        <button class="btn btn-default">Update</button>
         <button class="btn btn-info" (click)="cancelEditing()">Cancel</button>
-    </div>
+    </form>
 </div>

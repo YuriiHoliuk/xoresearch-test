@@ -6,28 +6,30 @@
     </ul>
     <div class="controls">
         <button class="btn btn-success" (click)="startCreating()">Create</button>
-        <button class="btn btn-warning" *ngIf="selectedContact" (click)="startEditing()">Edit</button>
-        <button class="btn btn-danger" *ngIf="selectedContact" (click)="deleteContact()">Delete</button>
+        <button *ngIf="shouldShowEdit()" class="btn btn-warning" (click)="startEditing()">Edit</button>
+        <button *ngIf="shouldShowDelete()" class="btn btn-danger" (click)="deleteContact()">Delete</button>
     </div>
 </div>
 <div class="col-sm-3">
 
     <!--Contact Details-->
-    <div class="contact-details" *ngIf="selectedContact && !isEditing && !isCreating">
-        <h2 class="name">{{selectedContact.firstName}} {{selectedContact.surname}}</h2>
-        <p>
-            age: {{selectedContact.age}}
-        </p>
-        <p>
-            group: {{selectedContact.group}}
-        </p>
-        <p>
-            description: {{selectedContact.description}}
-        </p>
-        <p>
-            note: {{selectedContact.note}}
-        </p>
-    </div>
+    <ul class="contacts-details" *ngIf="shouldShowDetails()">
+        <li class="contact-card" *ngFor="let contact of selectedContacts">
+            <h2 class="name">{{contact.firstName}} {{contact.surname}}</h2>
+            <p>
+                Age: {{contact.age}}
+            </p>
+            <p class="group">
+                Group: {{contact.group}}
+            </p>
+            <p>
+                Description: {{contact.description}}
+            </p>
+            <p>
+                Note: {{contact.note}}
+            </p>
+        </li>
+    </ul>
 
     <!--Contact Create Form-->
     <form *ngIf="isCreating" class="form-horizontal" (ngSubmit)="addContact(newContact)">
@@ -46,8 +48,8 @@
         <div class="form-group">
             <label for="group">Group:</label>
             <select class="form-control" [(ngModel)]="newContact.group" name="group">
-          <option *ngFor="let group of groups" value="{{group.title}}">{{group.title}}</option>
-        </select>
+                <option *ngFor="let group of groups" value="{{group.title}}">{{group.title}}</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
