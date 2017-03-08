@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { UIRouterModule } from "ui-router-ng2";
+import { RouterModule, Routes } from '@angular/router';
 
 
 import { ContactsComponent } from '../contacts/contacts.component';
@@ -7,32 +7,30 @@ import { GroupsComponent } from '../groups/groups.component';
 import { ClockComponent } from '../clock/clock.component';
 
 
-const states = [
+const routes: Routes = [
   {
-    name: 'contacts',
-    url: '/contacts',
+    path: '',
+    redirectTo: '/contacts',
+    pathMatch: 'full'
+  },
+  {
+    path: 'contacts',
     component: ContactsComponent
   },
   {
-    name: 'groups',
-    url: '/groups',
+    path: 'groups',
     component: GroupsComponent
   },
   {
-    name: 'clock',
-    url: '/clock',
+    path: 'clock',
     component: ClockComponent
   }
 ]
 
 @NgModule({
   imports: [
-    UIRouterModule.forRoot({
-      states: states,
-      useHash: false,
-      otherwise: 'contacts'
-    })
+    RouterModule.forRoot(routes)
   ],
-  exports: [UIRouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

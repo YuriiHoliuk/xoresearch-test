@@ -1,12 +1,12 @@
 webpackJsonp([1,4],{
 
-/***/ 230:
+/***/ 217:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(376);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactsService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -78,13 +78,13 @@ var ContactsService = (function () {
 
 /***/ }),
 
-/***/ 231:
+/***/ 218:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(376);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GroupsService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -148,7 +148,7 @@ var GroupsService = (function () {
 
 /***/ }),
 
-/***/ 349:
+/***/ 331:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -308,14 +308,14 @@ var ClockComponent = (function () {
         setTimeout(drawClock, 1000);
     };
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ViewChild */])('clock'), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */])('clock'), 
         __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* ElementRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* ElementRef */]) === 'function' && _a) || Object)
     ], ClockComponent.prototype, "clock", void 0);
     ClockComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
             selector: 'app-clock',
-            template: __webpack_require__(713),
-            styles: [__webpack_require__(709)]
+            template: __webpack_require__(679),
+            styles: [__webpack_require__(675)]
         }), 
         __metadata('design:paramtypes', [])
     ], ClockComponent);
@@ -326,14 +326,14 @@ var ClockComponent = (function () {
 
 /***/ }),
 
-/***/ 350:
+/***/ 332:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__contacts_service__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__groups_service__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__contacts_service__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__groups_service__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash__ = __webpack_require__(373);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_lodash__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -477,22 +477,22 @@ var ContactsComponent = (function () {
         this.isEditing = false;
     };
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* HostListener */])('document:keydown', ['$event']), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* HostListener */])('document:keydown', ['$event']), 
         __metadata('design:type', Function), 
         __metadata('design:paramtypes', [Object]), 
         __metadata('design:returntype', void 0)
     ], ContactsComponent.prototype, "onCtrlDown", null);
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* HostListener */])('document:keyup', ['$event']), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* HostListener */])('document:keyup', ['$event']), 
         __metadata('design:type', Function), 
         __metadata('design:paramtypes', [Object]), 
         __metadata('design:returntype', void 0)
     ], ContactsComponent.prototype, "onCtrlUp", null);
     ContactsComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
             selector: 'app-contacts',
-            template: __webpack_require__(714),
-            styles: [__webpack_require__(710)]
+            template: __webpack_require__(680),
+            styles: [__webpack_require__(676)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__contacts_service__["a" /* ContactsService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__contacts_service__["a" /* ContactsService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__groups_service__["a" /* GroupsService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__groups_service__["a" /* GroupsService */]) === 'function' && _b) || Object])
     ], ContactsComponent);
@@ -503,14 +503,14 @@ var ContactsComponent = (function () {
 
 /***/ }),
 
-/***/ 351:
+/***/ 333:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__contacts_service__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__groups_service__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__contacts_service__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__groups_service__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash__ = __webpack_require__(373);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_lodash__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GroupsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -657,22 +657,22 @@ var GroupsComponent = (function () {
         this.getGroups();
     };
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* HostListener */])('document:keydown', ['$event']), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* HostListener */])('document:keydown', ['$event']), 
         __metadata('design:type', Function), 
         __metadata('design:paramtypes', [Object]), 
         __metadata('design:returntype', void 0)
     ], GroupsComponent.prototype, "onCtrlDown", null);
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* HostListener */])('document:keyup', ['$event']), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* HostListener */])('document:keyup', ['$event']), 
         __metadata('design:type', Function), 
         __metadata('design:paramtypes', [Object]), 
         __metadata('design:returntype', void 0)
     ], GroupsComponent.prototype, "onCtrlUp", null);
     GroupsComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
             selector: 'app-groups',
-            template: __webpack_require__(715),
-            styles: [__webpack_require__(711)]
+            template: __webpack_require__(681),
+            styles: [__webpack_require__(677)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__contacts_service__["a" /* ContactsService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__contacts_service__["a" /* ContactsService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__groups_service__["a" /* GroupsService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__groups_service__["a" /* GroupsService */]) === 'function' && _b) || Object])
     ], GroupsComponent);
@@ -683,7 +683,7 @@ var GroupsComponent = (function () {
 
 /***/ }),
 
-/***/ 435:
+/***/ 394:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -692,20 +692,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 435;
+webpackEmptyContext.id = 394;
 
 
 /***/ }),
 
-/***/ 436:
+/***/ 395:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(523);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(482);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(552);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(549);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(515);
 
 
 
@@ -718,15 +718,15 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 547:
+/***/ 513:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ui_router_ng2__ = __webpack_require__(768);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contacts_contacts_component__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__groups_groups_component__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__clock_clock_component__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contacts_contacts_component__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__groups_groups_component__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__clock_clock_component__ = __webpack_require__(331);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -742,20 +742,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var states = [
+var routes = [
     {
-        name: 'contacts',
-        url: '/contacts',
+        path: '',
+        redirectTo: '/contacts',
+        pathMatch: 'full'
+    },
+    {
+        path: 'contacts',
         component: __WEBPACK_IMPORTED_MODULE_2__contacts_contacts_component__["a" /* ContactsComponent */]
     },
     {
-        name: 'groups',
-        url: '/groups',
+        path: 'groups',
         component: __WEBPACK_IMPORTED_MODULE_3__groups_groups_component__["a" /* GroupsComponent */]
     },
     {
-        name: 'clock',
-        url: '/clock',
+        path: 'clock',
         component: __WEBPACK_IMPORTED_MODULE_4__clock_clock_component__["a" /* ClockComponent */]
     }
 ];
@@ -765,13 +767,9 @@ var AppRoutingModule = (function () {
     AppRoutingModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ui_router_ng2__["UIRouterModule"].forRoot({
-                    states: states,
-                    useHash: false,
-                    otherwise: 'contacts'
-                })
+                __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes)
             ],
-            exports: [__WEBPACK_IMPORTED_MODULE_1_ui_router_ng2__["UIRouterModule"]]
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
         }), 
         __metadata('design:paramtypes', [])
     ], AppRoutingModule);
@@ -781,7 +779,7 @@ var AppRoutingModule = (function () {
 
 /***/ }),
 
-/***/ 548:
+/***/ 514:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -801,10 +799,10 @@ var AppComponent = (function () {
     function AppComponent() {
     }
     AppComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
             selector: 'app-root',
-            template: __webpack_require__(712),
-            styles: [__webpack_require__(708)]
+            template: __webpack_require__(678),
+            styles: [__webpack_require__(674)]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
@@ -814,24 +812,24 @@ var AppComponent = (function () {
 
 /***/ }),
 
-/***/ 549:
+/***/ 515:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(148);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(514);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular_in_memory_web_api__ = __webpack_require__(554);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__in_memory_data_service__ = __webpack_require__(551);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing_app_routing_module__ = __webpack_require__(547);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(548);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__contacts_contacts_component__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__groups_groups_component__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__clock_clock_component__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__groups_service__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__contacts_service__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__contact_group_pipe__ = __webpack_require__(550);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular_in_memory_web_api__ = __webpack_require__(520);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__in_memory_data_service__ = __webpack_require__(517);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing_app_routing_module__ = __webpack_require__(513);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(514);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__contacts_contacts_component__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__groups_groups_component__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__clock_clock_component__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__groups_service__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__contacts_service__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__contact_group_pipe__ = __webpack_require__(516);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -889,7 +887,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 550:
+/***/ 516:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -923,7 +921,7 @@ var ContactGroupPipe = (function () {
 
 /***/ }),
 
-/***/ 551:
+/***/ 517:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -975,7 +973,7 @@ var InMemoryDataService = (function () {
 
 /***/ }),
 
-/***/ 552:
+/***/ 518:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -991,69 +989,69 @@ var environment = {
 
 /***/ }),
 
-/***/ 708:
+/***/ 674:
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ 709:
+/***/ 675:
 /***/ (function(module, exports) {
 
 module.exports = ".clock {\r\n    position: absolute;\r\n    left: 50%;\r\n    -webkit-transform: translateX(-50%);\r\n            transform: translateX(-50%);\r\n}\r\n\r\n.clock-container {\r\n    position: relative;\r\n}"
 
 /***/ }),
 
-/***/ 710:
+/***/ 676:
 /***/ (function(module, exports) {
 
 module.exports = ".contact-card {\r\n    padding-bottom: .8em;\r\n}\r\n\r\n.contact-card p {\r\n    font-size: 18px;\r\n}\r\n\r\n.contact-card:not(:first-child) {\r\n    padding-top: .3em;\r\n    border-top: 2px solid lightgray;\r\n}\r\n\r\n.col-sm-3 {\r\n    overflow: auto;\r\n}\r\n\r\n.list-group-item {\r\n    cursor: pointer;\r\n}"
 
 /***/ }),
 
-/***/ 711:
+/***/ 677:
 /***/ (function(module, exports) {
 
 module.exports = ".contact {\r\n    padding-left: 1em;\r\n    padding-bottom: 0.5em;\r\n}\r\n\r\n.group-panel {\r\n    cursor: pointer;\r\n    max-width: 70%;\r\n}\r\n\r\n.group-body {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: justify;\r\n        -ms-flex-pack: justify;\r\n            justify-content: space-between;\r\n}\r\n\r\n.group {\r\n    font-weight: bold;\r\n}"
 
 /***/ }),
 
-/***/ 712:
+/***/ 678:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-2\">\r\n            <ul class=\"nav nav-pills nav-stacked\">\r\n                <li uiSref=\"contacts\" uiSrefActive=\"active\">\r\n                    <a href=\"\">Contacts</a>\r\n                </li>\r\n                <li uiSref=\"groups\" uiSrefActive=\"active\">\r\n                    <a href=\"\">Groups</a>\r\n                </li>\r\n                <li uiSref=\"clock\" uiSrefActive=\"active\">\r\n                    <a href=\"\">Clock</a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n        <ui-view></ui-view>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-2\">\r\n            <ul class=\"nav nav-pills nav-stacked\">\r\n                <li routerLinkActive=\"active\">\r\n                    <a routerLink=\"/contacts\">Contacts</a>\r\n                </li>\r\n                <li routerLinkActive=\"active\">\r\n                    <a routerLink=\"/groups\">Groups</a>\r\n                </li>\r\n                <li routerLinkActive=\"active\">\r\n                    <a routerLink=\"/clock\">Clock</a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n        <router-outlet></router-outlet>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
-/***/ 713:
+/***/ 679:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"col-sm-10 clock-container\">\r\n    <canvas #clock [attr.width]='width' [attr.height]='height' class=\"clock\"></canvas>\r\n</div>"
 
 /***/ }),
 
-/***/ 714:
+/***/ 680:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"col-sm-7\">\r\n    <ul class=\"list-group\">\r\n        <li class=\"list-group-item\" [ngClass]=\"{'active': isSelected(contact)}\" *ngFor=\"let contact of contacts\" (click)=\"onSelect(contact)\">\r\n            <span class=\"name\">{{contact.firstName}} </span><span class=\"name\">{{contact.surname}}</span>\r\n        </li>\r\n    </ul>\r\n    <div class=\"controls\">\r\n        <button class=\"btn btn-success\" (click)=\"startCreating()\">Create</button>\r\n        <button *ngIf=\"shouldShowEdit()\" class=\"btn btn-warning\" (click)=\"startEditing()\">Edit</button>\r\n        <button *ngIf=\"shouldShowDelete()\" class=\"btn btn-danger\" (click)=\"deleteContact()\">Delete</button>\r\n    </div>\r\n</div>\r\n<div class=\"col-sm-3\">\r\n\r\n    <!--Contact Details-->\r\n    <ul class=\"contacts-details\" *ngIf=\"shouldShowDetails()\">\r\n        <li class=\"contact-card\" *ngFor=\"let contact of selectedContacts\">\r\n            <h2 class=\"name\">{{contact.firstName}} {{contact.surname}}</h2>\r\n            <p>\r\n                Age: {{contact.age}}\r\n            </p>\r\n            <p class=\"group\">\r\n                Group: {{contact.group}}\r\n            </p>\r\n            <p>\r\n                Description: {{contact.description}}\r\n            </p>\r\n            <p>\r\n                Note: {{contact.note}}\r\n            </p>\r\n        </li>\r\n    </ul>\r\n\r\n    <!--Contact Create Form-->\r\n    <form *ngIf=\"isCreating\" class=\"form-horizontal\" (ngSubmit)=\"addContact(newContact)\">\r\n        <div class=\"form-group\">\r\n            <label for=\"firstanme\">First Name:</label>\r\n            <input class=\"form-control\" name=\"firstanme\" [(ngModel)]=\"newContact.firstName\" type=\"text\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"surname\">Surname:</label>\r\n            <input class=\"form-control\" name=\"surname\" [(ngModel)]=\"newContact.surname\" type=\"text\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"age\">Age:</label>\r\n            <input class=\"form-control\" name=\"age\" [(ngModel)]=\"newContact.age\" type=\"text\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"group\">Group:</label>\r\n            <select class=\"form-control\" [(ngModel)]=\"newContact.group\" name=\"group\">\r\n                <option *ngFor=\"let group of groups\" value=\"{{group.title}}\">{{group.title}}</option>\r\n            </select>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"description\">Description:</label>\r\n            <textarea class=\"form-control\" rows=\"5\" cols=\"20\" [(ngModel)]=\"newContact.description\" name=\"description\"></textarea>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"note\">Note:</label>\r\n            <textarea class=\"form-control\" rows=\"5\" cols=\"20\" [(ngModel)]=\"newContact.note\" name=\"note\"></textarea>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <button type=\"submit\" class=\"btn btn-default\">Add</button>\r\n            <button (click)=\"cancelCreating()\" class=\"btn btn-info\">Cancel</button>\r\n        </div>\r\n    </form>\r\n\r\n    <!--Contact Edit Form-->\r\n    <form class=\"form-horizontal\" (ngSubmit)=\"updateContact()\" *ngIf=\"isEditing\">\r\n        <div class=\"form-group\">\r\n            <label for=\"firstanme\">First Name:</label>\r\n            <input class=\"form-control\" name=\"firstanme\" [(ngModel)]=\"editedContact.firstName\" type=\"text\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"surname\">Surname:</label>\r\n            <input class=\"form-control\" name=\"surname\" [(ngModel)]=\"editedContact.surname\" type=\"text\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"age\">Age:</label>\r\n            <input class=\"form-control\" name=\"age\" [(ngModel)]=\"editedContact.age\" type=\"text\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"group\">Group:</label>\r\n            <select class=\"form-control\" [(ngModel)]=\"editedContact.group\" name=\"group\">\r\n          <option *ngFor=\"let group of groups\" value=\"{{group.title}}\">{{group.title}}</option>\r\n        </select>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"description\">Description:</label>\r\n            <textarea class=\"form-control\" rows=\"5\" cols=\"20\" [(ngModel)]=\"editedContact.description\" name=\"description\"></textarea>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"note\">Note:</label>\r\n            <textarea class=\"form-control\" rows=\"5\" cols=\"20\" [(ngModel)]=\"editedContact.note\" name=\"note\"></textarea>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <button type=\"submit\" class=\"btn btn-default\">Update</button>\r\n            <button (click)=\"cancelEditing()\" class=\"btn btn-info\">Cancel</button>\r\n        </div>\r\n    </form>\r\n\r\n</div>"
 
 /***/ }),
 
-/***/ 715:
+/***/ 681:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"col-sm-10\">\r\n    <ul>\r\n        <li *ngFor=\"let group of groups\" class=\"panel panel-default group-panel\" (click)=\"onSelect(group)\">\r\n            <div class=\"panel-body\">\r\n                <div class=\"group-body\">\r\n                    <span class=\"group\">{{group.title}} </span>\r\n                    <span class=\"badge\">{{countMembers(group.title)}}</span>\r\n                </div>\r\n            </div>\r\n            <ul *ngIf=\"isSelected(group)\">\r\n                <li class=\"contact\" *ngFor=\"let contact of (contacts | contactGroup: group)\">\r\n                    <span class=\"name\">{{contact.firstName}} </span><span class=\"name\">{{contact.surname}}</span>\r\n                </li>\r\n                <p *ngIf=\"(contacts | contactGroup: group).length === 0\">No contacts in this group</p>\r\n            </ul>\r\n        </li>\r\n    </ul>\r\n    <div class=\"controls\" *ngIf=\"(!isCreating && !isEditing)\">\r\n        <button class=\"btn btn-success\" (click)=\"startCreating()\">Create</button>\r\n        <button *ngIf=\"shouldShowEdit()\" class=\"btn btn-warning\" (click)=\"startEditing()\">Edit</button>\r\n        <button *ngIf=\"shouldShowDelete()\" class=\"btn btn-danger\" (click)=\"deleteGroup()\">Delete</button>\r\n    </div>\r\n\r\n    <form (ngSubmit)=\"addGroup()\" name=\"creating\" class=\"creating form-inline\" *ngIf=\"isCreating\">\r\n        <input class=\"form-control\" type=\"text\" [(ngModel)]=\"newGroup.title\" [ngModelOptions]=\"{standalone: true}\">\r\n        <button class=\"btn btn-default\">Add</button>\r\n        <button class=\"btn btn-info\" (click)=\"cancelCreating()\">Cancel</button>\r\n    </form>\r\n\r\n    <form (ngSubmit)=\"updateGroup()\" name=\"editing\" class=\"editing form-inline\" *ngIf=\"isEditing\">\r\n        <input class=\"form-control\" type=\"text\" [(ngModel)]=\"editedGroup.title\" [ngModelOptions]=\"{standalone: true}\">\r\n        <button class=\"btn btn-default\">Update</button>\r\n        <button class=\"btn btn-info\" (click)=\"cancelEditing()\">Cancel</button>\r\n    </form>\r\n</div>"
 
 /***/ }),
 
-/***/ 779:
+/***/ 706:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(436);
+module.exports = __webpack_require__(395);
 
 
 /***/ })
 
-},[779]);
+},[706]);
 //# sourceMappingURL=main.bundle.map

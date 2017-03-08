@@ -2,17 +2,17 @@
     <div class="row">
         <div class="col-sm-2">
             <ul class="nav nav-pills nav-stacked">
-                <li uiSref="contacts" uiSrefActive="active">
-                    <a href="">Contacts</a>
+                <li routerLinkActive="active">
+                    <a routerLink="/contacts">Contacts</a>
                 </li>
-                <li uiSref="groups" uiSrefActive="active">
-                    <a href="">Groups</a>
+                <li routerLinkActive="active">
+                    <a routerLink="/groups">Groups</a>
                 </li>
-                <li uiSref="clock" uiSrefActive="active">
-                    <a href="">Clock</a>
+                <li routerLinkActive="active">
+                    <a routerLink="/clock">Clock</a>
                 </li>
             </ul>
         </div>
-        <ui-view></ui-view>
+        <router-outlet></router-outlet>
     </div>
 </div>
